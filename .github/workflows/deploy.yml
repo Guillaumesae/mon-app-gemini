@@ -32,3 +32,5 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
           channelId: live
+          # Ajout de l'ID du projet pour corriger l'erreur
+          projectId: 268165687076
