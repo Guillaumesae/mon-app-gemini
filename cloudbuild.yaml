@@ -1,0 +1,19 @@
+steps:
+  # Étape 1: Installer les dépendances
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+
+  # Étape 2: Construire l'application React
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build']
+    secretEnv: ['VITE_GEMINI_API_KEY']
+
+  # Étape 3: Déployer sur Firebase Hosting
+  - name: 'gcr.io/firebase/firebase'
+    args: ['deploy', '--only', 'hosting']
+
+# Lie la variable d'environnement au secret stocké
+availableSecrets:
+  secretManager:
+  - versionName: projects/$PROJECT_ID/secrets/VITE_GEMINI_API_KEY/versions/latest
+    env: 'VITE_GEMINI_API_KEY'
