@@ -17,3 +17,7 @@ availableSecrets:
   secretManager:
   - versionName: projects/$PROJECT_ID/secrets/VITE_GEMINI_API_KEY/versions/latest
     env: 'VITE_GEMINI_API_KEY'
+
+# Ajout de la configuration des logs pour corriger l'erreur
+options:
+  logging: CLOUD_LOGGING_ONLY
